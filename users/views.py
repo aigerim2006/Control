@@ -53,4 +53,5 @@ def logout_view(request):
 @login_required(login_url="/login/")
 def profile_view(request):
     user = request.user
+    products = user.products.all()
     return render(request, "users/profile.html", {"user": user, "products": products})

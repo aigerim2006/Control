@@ -16,6 +16,8 @@
 <div class="card" style="width: 18rem; margin-bottom: 10px;">
     {% if product.photo %}
         <img src="{{ product.photo.url }}" class="card-img-top">
+    {% else %}
+        <img src="/static/null_image2.png" class="card-img-top">
     {% endif %}
     <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
