@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Profile of {{ user.username }}</h2>
+
+<p>Email: {{ user.email }}</p>
+<p>Age: {{ user.profile.age }}</p>
+{% if user.profile.photo %}
+    <img src="{{ user.profile.photo.url }}" alt="Profile Photo" width="200">
+{% else %}
+    <p>No profile photo</p>
+{% endif %}
+
+<h3>Products</h3>
+{% for product in products %}
+<div class="card" style="width: 18rem; margin-bottom: 10px;">
+    {% if product.photo %}
+        <img src="{{ product.photo.url }}" class="card-img-top">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p>Price: {{ product.price }}</p>
+    </div>
+</div>
+{% empty %}
+<p>No products yet</p>
+{% endfor %}
+{% endblock %}
